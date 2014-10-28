@@ -1,0 +1,14 @@
+dependencies:
+  pre:
+    - gem install package_cloud
+
+test:
+  override:
+    - make
+
+deployment:
+  production:
+    branch: master
+    commands:
+     - package_cloud push packagecloud_user/newrepo ./packagecloud-test-gem-0.0.1.gem
+     - make clean

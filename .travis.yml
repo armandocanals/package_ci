@@ -1,0 +1,9 @@
+before_install:
+  - gem install package_cloud
+  - make
+
+script:
+  - package_cloud push packagecloud_user/newrepo ./packagecloud-test-gem-0.0.1.gem
+
+after_script:
+  - make clean
